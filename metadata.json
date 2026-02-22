@@ -1,0 +1,8 @@
+{
+  "name": "Anurag Chaurasiya - VFX & Video Editing Portfolio",
+  "description": "A premium, high-performance portfolio for a professional VFX artist and video editor, featuring AI-powered interaction and cinematic design.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
