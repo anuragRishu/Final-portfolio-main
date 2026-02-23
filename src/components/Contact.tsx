@@ -72,13 +72,13 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-white/40">Email</label>
-                  <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="john@example.com" />
+                  <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="ai.anu6261@gmail.com" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-widest text-white/40">Subject</label>
                 <select className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 focus:outline-none focus:border-indigo-500 transition-colors appearance-none">
-                  <option className="bg-zinc-900">VFX Project</option>
+                  <option className="bg-zinc-900"></option>
                   <option className="bg-zinc-900">Video Editing</option>
                   <option className="bg-zinc-900">Motion Graphics</option>
                   <option className="bg-zinc-900">Other</option>
