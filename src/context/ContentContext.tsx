@@ -75,31 +75,48 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<SiteData | null>(defaultContent);
   const [loading, setLoading] = useState(true);
 
-  // 🔥 LOAD FROM SUPABASE (replaces GET /api/content)
   useEffect(() => {
     async function loadContent() {
-      const { data: row } = await supabase
+      const { data: row, error } = await supabase
         .from("content")
         .select("value")
         .eq("key", "site_data")
         .single();
 
-      if (row?.value) {
-        setData(row.value);
+      if (error) {
+        console.log("Supabase load error → using default");
+        setLoading(false);
+        return;
       }
+
+      if (row?.value) {
+        const parsed =
+          typeof row.value === "string"
+            ? JSON.parse(row.value)
+            : row.value;
+
+        setData(parsed);
+      }
+
       setLoading(false);
     }
 
     loadContent();
   }, []);
 
-  // 🔥 SAVE TO SUPABASE (replaces POST /api/content)
   const updateData = async (newData: SiteData) => {
     setData(newData);
 
-    await supabase
+    const { error } = await supabase
       .from("content")
-      .upsert({ key: "site_data", value: newData });
+      .upsert({
+        key: "site_data",
+        value: JSON.stringify(newData),
+      });
+
+    if (error) {
+      console.error("Save error:", error);
+    }
   };
 
   return (

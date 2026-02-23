@@ -17,10 +17,21 @@ import AdminPanel from './components/AdminPanel';
 import PasswordModal from './components/PasswordModal';
 import { ContentProvider } from './context/ContentContext';
 import { AnimatePresence } from 'motion/react';
+import { useAuth } from "./context/AuthContext";
 
 export default function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
+  const { session, loading } = useAuth();
+
+  const handleAdminClick = () => {
+  if (!session) {
+    setIsPasswordModalOpen(true); // show login modal
+    return;
+  }
+
+  setIsAdminOpen(true); // already logged in → open admin
+};
 
   const handleAdminSuccess = () => {
     setIsPasswordModalOpen(false);
@@ -28,9 +39,9 @@ export default function App() {
   };
 
   return (
-    <ContentProvider>
+    
       <div className="min-h-screen bg-black text-white selection:bg-indigo-500 selection:text-white">
-        <Navbar onAdminClick={() => setIsPasswordModalOpen(true)} />
+        <Navbar onAdminClick={handleAdminClick} />
         <main>
           <Hero />
           <Projects />
@@ -54,6 +65,6 @@ export default function App() {
           )}
         </AnimatePresence>
       </div>
-    </ContentProvider>
+    
   );
 }

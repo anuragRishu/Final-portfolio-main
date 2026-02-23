@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useContent, SiteData } from '../context/ContentContext';
 import { X, Save, Plus, Trash2, ChevronRight, ChevronDown, Database as DbIcon, RefreshCw, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useAuth } from "../context/AuthContext";
+import { supabase } from "../lib/supabase";
+
 
 export default function AdminPanel({ onClose }: { onClose: () => void }) {
   const { data, updateData } = useContent();
@@ -9,6 +12,18 @@ export default function AdminPanel({ onClose }: { onClose: () => void }) {
   const [activeSection, setActiveSection] = useState<string | null>('hero');
   const [isSyncing, setIsSyncing] = useState(false);
   const [supabaseStatus, setSupabaseStatus] = useState<'checking' | 'connected' | 'missing'>('checking');
+  const { session, loading } = useAuth();
+
+  if (loading) return null;
+
+if (!session) {
+  return null;
+}
+
+
+const handleLogout = async () => {
+  await supabase.auth.signOut();
+};
 
   useEffect(() => {
     const checkSupabase = async () => {
@@ -138,6 +153,14 @@ export default function AdminPanel({ onClose }: { onClose: () => void }) {
             >
               <Save size={18} /> Save Changes
             </button>
+
+            <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 bg-red-600/10 hover:bg-red-600/20 text-red-400 px-4 py-2.5 rounded-full text-sm font-bold transition-all border border-red-500/20"
+              >
+                Logout
+              </button>
+
             <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-full transition-colors">
               <X size={24} />
             </button>

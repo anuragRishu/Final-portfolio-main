@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Lock, X, ShieldCheck } from 'lucide-react';
+import { supabase } from "../lib/supabase";
 
 export default function PasswordModal({ 
   onSuccess, 
@@ -9,19 +10,29 @@ export default function PasswordModal({
   onSuccess: () => void; 
   onClose: () => void;
 }) {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (password === 'admin123') {
-      onSuccess();
-    } else {
-      setError(true);
-      setPassword('');
-      setTimeout(() => setError(false), 2000);
-    }
-  };
+  
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const { error } = await supabase.auth.signInWithPassword({
+    email: email,          // ✅ use input value
+    password: password,
+  });
+
+  if (error) {
+    setError(true);
+    setPassword("");
+    setTimeout(() => setError(false), 2000);
+    return;
+  }
+
+  onSuccess(); // triggers admin open
+};
 
   return (
     <motion.div 
@@ -54,6 +65,17 @@ export default function PasswordModal({
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Admin email..."
+              className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 focus:outline-none focus:border-indigo-500 transition-all text-center"
+            />
+          </div>
+          
+          <div className="relative">
+            
             <input 
               type="password"
               autoFocus
