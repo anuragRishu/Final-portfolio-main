@@ -70,7 +70,7 @@ export const defaultContent = {
     title: "LET'S CREATE SOMETHING EPIC",
     email: "ai.anu6261@gmail.com",
     phone: "+91 6261524645",
-    location: "Mumbai, India"
+    location: "Indore, India"
   },
   socials: {
     github: "https://github.com/anuragRishu",
