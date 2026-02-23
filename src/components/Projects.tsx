@@ -7,7 +7,7 @@ export default function Projects() {
   const { data } = useContent();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mobileActiveIndex, setMobileActiveIndex] = useState<number | null>(null);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 1024 : false);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
   const iframeRefs = useRef<Record<number, HTMLIFrameElement | null>>({});
