@@ -2,7 +2,7 @@ export const defaultContent = {
   navbar: {
     logo: "A",
     name: "Anurag Chaurasiya",
-    resumeUrl: "#",
+    resumeUrl: "https://drive.google.com/file/d/1nbeR2q0zVMm9KH-ajrNmnsA32Vm86yNz/view?usp=sharing",
     items: [
       { name: 'Work', href: '#work' },
       { name: 'Services', href: '#services' },
@@ -12,10 +12,10 @@ export const defaultContent = {
     ]
   },
   hero: {
-    badge: "Professional VFX Artist & Video Editor",
+    badge: "Professional Video Editor & Graphic Designer",
     title: "CRAFTING VISUAL STORIES",
     subtitle: "Transforming raw footage into cinematic experiences. Specializing in high-end VFX, motion graphics, and narrative-driven video editing for global brands and creators.",
-    profileImage: "https://picsum.photos/seed/anurag/400/400",
+    profileImage: "https://images.pexels.com/photos/36249828/pexels-photo-36249828.jpeg",
     intro: "Hi, I'm Anurag. I bring stories to life through pixels and motion.",
     primaryBtn: "View Showreel",
     primaryBtnUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
@@ -28,27 +28,27 @@ export const defaultContent = {
   },
   projects: [
     {
-      title: "Cyberpunk Cinematic",
-      category: "VFX & Compositing",
-      image: "https://picsum.photos/seed/vfx1/800/600",
-      youtubeEmbedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      title: "KAFAN",
+      category: "Shortfilm",
+      image: "https://img.youtube.com/vi/m_sqDYTRBww/maxresdefault.jpg",
+      youtubeEmbedUrl: "https://www.youtube.com/embed/m_sqDYTRBww?si=19D3gIiBvZfAhibR",
     },
     {
-      title: "Brand Identity Reveal",
-      category: "Motion Graphics",
+      title: "Youtube Explainer Edit",
+      category: "Social Media",
       image: "https://picsum.photos/seed/vfx2/800/600",
       youtubeEmbedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     }
   ],
   services: [
     {
-      title: "VFX & Compositing",
+      title: "Video Editing",
       description: "High-end visual effects, green screen removal, and seamless multi-layer compositing for film and commercials.",
       price: "Starting at $500",
       icon: "Sparkles"
     },
     {
-      title: "Video Editing",
+      title: "Graphics Designing",
       description: "Narrative-driven editing that tells your story effectively. From YouTube content to professional documentaries.",
       price: "Starting at $300",
       icon: "Scissors"
@@ -73,9 +73,9 @@ export const defaultContent = {
     location: "Mumbai, India"
   },
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
-    instagram: "https://instagram.com"
+    github: "https://github.com/anuragRishu",
+    linkedin: "https://www.linkedin.com/in/anurag-chaurasiya-30a27a269?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    twitter: "https://x.com/anurag__rishu",
+    instagram: "https://www.instagram.com/anurag__rishu/"
   }
 };
