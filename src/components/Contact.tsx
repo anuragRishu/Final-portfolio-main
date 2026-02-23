@@ -72,7 +72,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-white/40">Email</label>
-                  <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="ai.anu6261@gmail.com" />
+                  <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="ai.anu6261@gmail.com" />ai.anu6261@gmail.com</input>
                 </div>
               </div>
               <div className="space-y-2">
