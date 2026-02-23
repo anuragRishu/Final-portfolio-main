@@ -2,7 +2,7 @@ export const defaultContent = {
   navbar: {
     logo: "A",
     name: "Anurag Chaurasiya",
-    resumeUrl: "https://drive.google.com/file/d/1nbeR2q0zVMm9KH-ajrNmnsA32Vm86yNz/view?usp=sharing",
+    resumeUrl: "https://drive.google.com/file/d/1NTXJ6wdRBXR-_2O-9qnwl1Dx3J4bM6Sd/view?usp=drive_link",
     items: [
       { name: 'Work', href: '#work' },
       { name: 'Services', href: '#services' },
